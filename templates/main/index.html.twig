@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1>Bienvenue sur Loca Jeu</h1>
+                <p>Une page factice permettant de louer de faux jeux de société.</p>
+
+                <p>Voici la liste des jeux référencés sur le site :</p>
+
+                <ul class="list-group">
+                    {% for jeu in jeux %}
+                        <li class="list-group-item">
+                            <h2>{{ jeu.nom }}</h2>
+                            <p>{{ jeu.description }}</p>
+                            <a href="{{ path('voir_jeu', {'id': jeu.id}) }}" class="btn btn-primary">Voir</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
